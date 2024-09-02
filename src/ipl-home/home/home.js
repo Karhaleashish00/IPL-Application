@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './home.css';
-import Nav from './nav/Nav'
-import Csk from './csk'
+import Nav from '../nav/Nav'
+import Players from '../players/players'
 
 function Home() {
     const [home, setHome] = useState(false);
@@ -110,16 +110,16 @@ function Home() {
                         <span id="team-trophy" className="text-center" dangerouslySetInnerHTML={{ __html: trophyContent }} />
                 </div>
                 
-                {teamId === 'csk' && <Csk id="csk"/>}
-                {teamId === 'dc' && <Csk id="dc"/>}
-                {teamId === 'gt' && <Csk id="gt"/>}
-                {teamId === 'kkr' && <Csk id="kkr"/>}
-                {teamId === 'lsg' && <Csk id="lsg"/>}
-                {teamId === 'mi' && <Csk id="mi"/>}
-                {teamId === 'pbks' && <Csk id="pbks"/>}
-                {teamId === 'rr' && <Csk id="rr"/>}
-                {teamId === 'rcb' && <Csk id="rcb"/>}
-                {teamId === 'srh' && <Csk id="srh"/>}
+                {teamId === 'csk' && <Players id="csk"/>}
+                {teamId === 'dc' && <Players id="dc"/>}
+                {teamId === 'gt' && <Players id="gt"/>}
+                {teamId === 'kkr' && <Players id="kkr"/>}
+                {teamId === 'lsg' && <Players id="lsg"/>}
+                {teamId === 'mi' && <Players id="mi"/>}
+                {teamId === 'pbks' && <Players id="pbks"/>}
+                {teamId === 'rr' && <Players id="rr"/>}
+                {teamId === 'rcb' && <Players id="rcb"/>}
+                {teamId === 'srh' && <Players id="srh"/>}
             </section>            
         </div>
     );
