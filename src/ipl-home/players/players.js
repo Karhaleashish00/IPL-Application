@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Csk(props) {
+function Players(props) {
   const [data, setData] = useState({});
     console.log(props.id);
     
@@ -120,7 +120,6 @@ function Csk(props) {
             break;
     }
   }, []);
-
   return (
     <div id="players">
       {data.Batters && data.Batters.length > 0 && (
@@ -132,6 +131,7 @@ function Csk(props) {
                 className="pl-img nav-item"
                 src={batter.image_url}
                 alt={`${batter.name} Logo`}
+                onClick={()=>props.setCalled(batter)}
               />
               <label className="pl-name">{batter.name}</label>
               <label className="pl-skill">Batting</label>
@@ -149,6 +149,7 @@ function Csk(props) {
                 className="pl-img nav-item"
                 src={allRounder.image_url}
                 alt={`${allRounder.name} Logo`}
+                onClick={()=>props.setCalled(allRounder)}
               />
               <label className="pl-name">{allRounder.name}</label>
               <label className="pl-skill">All Rounder</label>
@@ -166,6 +167,7 @@ function Csk(props) {
                 className="pl-img nav-item"
                 src={Bowlers.image_url}
                 alt={`${Bowlers.name} Logo`}
+                onClick={()=>props.setCalled(Bowlers)}
               />
               <label className="pl-name">{Bowlers.name}</label>
               <label className="pl-skill">Bowlers</label>
@@ -177,4 +179,4 @@ function Csk(props) {
   );
 }
 
-export default Csk;
+export default Players;
