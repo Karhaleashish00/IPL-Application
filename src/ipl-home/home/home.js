@@ -14,6 +14,7 @@ function Home() {
     const [isdetailsCalled , setPlaersCalledBool] = useState(false);
     const [bgteam , setbg] = useState("white");
 
+
     function isplayerCalled(player){
         console.log(player)
         if(player){
@@ -143,7 +144,7 @@ function Home() {
                     <Nav />
                 </nav>
             </header>
-            {isdetailsCalled && <PlayersDetails data = {isdetailsCalled} back={backToPlayers} bg={bgteam}/>}
+            {isdetailsCalled && <PlayersDetails data = {isdetailsCalled}  back={backToPlayers} bg={bgteam}/>}
             {!isdetailsCalled && 
                 <section id='activity-section'>
                 {teamId === "home" &&
