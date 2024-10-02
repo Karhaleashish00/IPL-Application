@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 function Players(props) {
-  const [data, setData] = useState({});
-    console.log(props.id);
+    const [data, setData] = useState({});
+    
     
   useEffect(() => {
     switch(props.id){
@@ -11,7 +11,6 @@ function Players(props) {
             .then((res) => res.json())
             .then((data) => {
               setData(data);
-              console.log(data);
             })
             .catch((error) => {
               console.error("Error fetching data:", error);
@@ -22,7 +21,6 @@ function Players(props) {
             .then((res) => res.json())
             .then((data) => {
               setData(data);
-              console.log(data);
             })
             .catch((error) => {
               console.error("Error fetching data:", error);
