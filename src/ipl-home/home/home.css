@@ -17,6 +17,7 @@ header {
     color: #ffffff;
 }
 #main-div{
+    width: 100%;
     display: flex;
     padding: 10px;
 }
@@ -63,6 +64,16 @@ header {
 }
 
 #activity-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+#comp{
+    flex-direction: column;
+    overflow-y: auto;
+}
+#player-details{
     height: 100vh;
     display: flex;
     flex-direction: column;
