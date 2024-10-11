@@ -82,43 +82,79 @@ const GooglePieChart = (props) => {
     });
 
     // Options for charts
-    const bowlingOptions = { title: 'Wickets Loss Against Bowling Types' };
+    const bowlingOptions = { title: 'Wickets Loss Against Bowlers' };
     const groundOptions = { title: 'Runs Scored at Grounds' };
     const dismissalOptions = { title: 'Dismissals by Bowler' };
 
     return (
         <div>
-            <h2>Career Stats</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Innings</th>
-                        <td>{props.data.matches}</td>
-                    </tr>
-                    <tr>
-                        <th>Runs</th>
-                        <td>{props.data.runs_in_match}</td>
-                    </tr>
-                    <tr>
-                        <th>Balls Faced</th>
-                        <td>{props.data.balls_faced_in_match}</td>
-                    </tr>
-                    <tr>
-                        <th>Strike Rate</th>
-                        <td>{((props.data.runs_in_match / props.data.balls_faced_in_match) * 100).toFixed(2)}</td>
-                    </tr>
-                    <tr>
-                        <th>sixes</th>
-                        <td>{props.data.sixes_in_match}</td>
-                    </tr>
-                    <tr>
-                        <th>fours</th>
-                        <td>{props.data.fours_in_match}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2 style={{margin:"30px 5px"}}>Career Stats</h2>
+            <div style={{display:'flex'}}>           
+                <div style={{width:'50%'}}>
+                    <h4>Batting Stats</h4>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Innings</th>
+                                <td>{props.data.matches}</td>
+                            </tr>
+                            <tr>
+                                <th>Runs</th>
+                                <td>{props.data.runs_in_match}</td>
+                            </tr>
+                            <tr>
+                                <th>Balls Faced</th>
+                                <td>{props.data.balls_faced_in_match}</td>
+                            </tr>
+                            <tr>
+                                <th>Strike Rate</th>
+                                <td>{((props.data.runs_in_match / props.data.balls_faced_in_match) * 100).toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <th>sixes</th>
+                                <td>{props.data.sixes_in_match}</td>
+                            </tr>
+                            <tr>
+                                <th>fours</th>
+                                <td>{props.data.fours_in_match}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style={{width:'50%'}}>
+                <h4>Bowling Stats</h4>
+                <table>
+                        <tbody>
+                            {/* <tr>
+                                <th>Innings</th>
+                                <td>{props.data.matches}</td>
+                            </tr> */}
+                            <tr>
+                                <th>Runs</th>
+                                <td>{props.data.total_runs_conceded}</td>
+                            </tr>
+                            <tr>
+                                <th>Balls</th>
+                                <td>{props.data.total_balls_bowled}</td>
+                            </tr>
+                            <tr>
+                                <th>wicktes</th>
+                                <td>{props.data.wickets_taken}</td>
+                            </tr>
+                            <tr>
+                                <th>average</th>
+                                <td>{((props.data.total_runs_conceded / props.data.wickets_taken)).toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <th>economy</th>
+                                <td>{((props.data.total_runs_conceded)/(props.data.total_balls_bowled/6)).toFixed(2)}</td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+                </div>
 
-            <h2>Performance Analysis</h2>
+            </div>
+            <h2 style={{margin:"30px 5px"}}>Performance Analysis</h2>
             <div style={{ display: 'flex' }}>
                 <Chart chartType="PieChart" data={dismissalData} options={bowlingOptions} width="400px" height="300px" />
                 <Chart chartType="PieChart" data={groundData} options={groundOptions} width="400px" height="300px" />

@@ -1,0 +1,62 @@
+header{
+    background-color: #ffffff;
+}
+#main {
+    height: 100vh;
+    width: 85vw;
+    display: flex;
+}
+
+#heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px;
+    font-weight: 800;
+    color: #feb305;
+}
+
+#body{
+    width: 100%;   
+}
+#outerdiv{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    height: 100vh;
+}
+#outerdiv h3{
+    display: flex;
+    justify-content: center;
+}
+#outerdiv label{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#outerdiv p{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#outerdiv #player1{
+    display: flex;
+    justify-content: center;    
+}
+#outerdiv #playeroriginal{
+    display: flex;
+    justify-content: center;
+}
+#outerdiv #player2{
+    display: flex;
+    justify-content: center;
+}
+label{
+    font-weight:600;
+}
+P{
+    font-weight: 800;
+}

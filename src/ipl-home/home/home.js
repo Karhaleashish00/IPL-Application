@@ -3,18 +3,21 @@ import './home.css';
 import Nav from '../nav/Nav'
 import Players from '../players/players'
 import PlayersDetails from '../playersDetails/playersDetails';
-
+import ComparisionHome from '../player-comparision/comparisionHome';
 
 function Home() {
     const [home, setHome] = useState(false);
-    const [teamId , setTeamId] = useState(home)
-    const [content, setContent] = useState("<h1>Welcome to the IPL</h1>");
-    const [background, setBackground] = useState("#052a60");
+    const [teamId , setTeamId] = useState("home")
+    const [content, setContent] = useState("");
+    const [background, setBackground] = useState("#ffffff");
     const [trophyContent, setTrophyContent] = useState("");
     const [isdetailsCalled , setPlaersCalledBool] = useState(false);
     const [bgteam , setbg] = useState("white");
+    const [isComparisionCalled,setCompBool] = useState(false)
 
-
+    function comparisionCalled(){
+        setCompBool(true)
+    }
     function isplayerCalled(player){
         console.log(player)
         if(player){
@@ -52,11 +55,12 @@ function Home() {
                 switch (l.id) {
                     case "home":
                         setHome(false);
-                        setContent("<h1>Welcome to the IPL</h1>");
-                        setBackground("#052a60");
+                        setContent("");
+                        setBackground("#ffffff");
                         setTrophyContent("");
                         setTeamId("home")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "csk":
                         setBackground("#ffcb05");
@@ -64,6 +68,7 @@ function Home() {
                         setTrophyContent("<img src='https://www.iplt20.com/assets/images/team-trophy.png' alt=''><span id='winners' class='badge bg-success'>2010, 2011, 2018, 2021, 2023</span>");
                         setTeamId("csk")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "rr":
                         setBackground("#eb83b5");
@@ -71,6 +76,7 @@ function Home() {
                         setTrophyContent("<img src='https://www.iplt20.com/assets/images/team-trophy.png' alt=''><span id='winners' class='badge bg-success'>2008</span>");
                         setTeamId("rr")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "mi":
                         setBackground("#ffffff");
@@ -78,6 +84,7 @@ function Home() {
                         setTrophyContent("<img src='https://www.iplt20.com/assets/images/team-trophy.png' alt=''><span id='winners' class='badge bg-success'>2013, 2015, 2017, 2019, 2020</span>");
                         setTeamId("mi")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "gt":
                         setBackground("#4ecef5");
@@ -85,6 +92,7 @@ function Home() {
                         setTrophyContent("<img src='https://www.iplt20.com/assets/images/team-trophy.png' alt=''><span id='winners' class='badge bg-success'>2022</span>");
                         setTeamId("gt")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "rcb":
                         setBackground("#9a0f1d");
@@ -92,6 +100,7 @@ function Home() {
                         setTrophyContent("");
                         setTeamId("rcb")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "kkr":
                         setBackground("#7c1878");
@@ -99,6 +108,7 @@ function Home() {
                         setTrophyContent("<img src='https://www.iplt20.com/assets/images/team-trophy.png' alt=''><span id='winners' class='badge bg-success'>2012, 2014, 2024</span>");
                         setTeamId("kkr")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "pbks":
                         setBackground("#f51c32");
@@ -106,6 +116,7 @@ function Home() {
                         setTrophyContent("");
                         setTeamId("pbks")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "lsg":
                         setBackground("#3678f4");
@@ -113,6 +124,7 @@ function Home() {
                         setTrophyContent("");
                         setTeamId("lsg")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "dc":
                         setBackground("#ffffff");
@@ -120,6 +132,7 @@ function Home() {
                         setTrophyContent("");
                         setTeamId("dc")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     case "srh":
                         setBackground("#fd7e14");
@@ -127,11 +140,13 @@ function Home() {
                         setTrophyContent("<img src='https://www.iplt20.com/assets/images/team-trophy.png' alt=''><span id='winners' class='badge bg-success'>2016</span>");
                         setTeamId("srh")
                         setPlaersCalledBool("")
+                        setCompBool(false)
                         break;
                     default:
                         setBackground("#083475");
                         setContent("<h1>Welcome to the IPL</h1>");
                         setTrophyContent("");
+                        setCompBool(false)
                 }
             });
         });
@@ -143,11 +158,20 @@ function Home() {
                 <nav>
                     <Nav />
                 </nav>
-            </header>
-            {isdetailsCalled && <PlayersDetails data = {isdetailsCalled}  back={backToPlayers} bg={bgteam}/>}
+            </header>     
+            {isComparisionCalled && 
+                <section id='comp'>
+                    <ComparisionHome></ComparisionHome>
+                </section>
+            }   
+            {isdetailsCalled && 
+                <section id='player-details'>
+                    <PlayersDetails data = {isdetailsCalled}  back={backToPlayers} bg={bgteam}/>
+                </section>
+            }
             {!isdetailsCalled && 
                 <section id='activity-section'>
-                {teamId === "home" &&
+                {/* {teamId === "home" &&
                      <div id="main-section" className="container" style={{ backgroundColor: background }}>
                         <a href="http://localhost:4000/" target="" rel="noopener noreferrer">
                             <button className='badge' style={{color:"black",background:"white"}} onClick={GoToAddDataSection}>Add data</button>
@@ -155,11 +179,25 @@ function Home() {
                         <span id="main-section-content"></span>
                         <span id="team-trophy" className="text-center" dangerouslySetInnerHTML={{ __html: trophyContent }} />
                     </div>
-                }
-                <div id="main-section" className="container" style={{ backgroundColor: background }}>
+                } */}
+               {teamId === "home" && !isComparisionCalled &&
+                    <div id="main-section" className="container" style={{ backgroundColor: background,display:'flex',flexDirection:'row'}}>                        
+                        <div className='card' style={{margin:'0px 20px',width:'400px',height:'400px',padding:'50px',cursor:'pointer'}} onClick={comparisionCalled}>
+                            <img src={`${process.env.PUBLIC_URL}/images/player-comparision.png`}></img>
+                            <h2 className='card-title'>Player Comparision</h2>
+                        </div>
+                        <div className='card' style={{margin:'0px 20px',width:'400px',height:'400px',padding:'50px',cursor:'pointer'}}>
+                            <img src={`${process.env.PUBLIC_URL}/images/prediction.png`}></img>
+                            <h2 className='card-title'>fantacy Prediction</h2>
+                        </div>                    
+                    </div>
+               }
+               {teamId !== "home" && 
+                    <div id="main-section" className="container" style={{ backgroundColor: background }}>
                         <span id="main-section-content" dangerouslySetInnerHTML={{ __html: content }} />
                         <span id="team-trophy" className="text-center" dangerouslySetInnerHTML={{ __html: trophyContent }} />
-                </div>
+                    </div>  
+               }
                 
                 {teamId === 'csk' && !isdetailsCalled && <Players id="csk" setCalled ={isplayerCalled}/>}
                 {teamId === 'dc' && !isdetailsCalled && <Players id="dc" setCalled ={isplayerCalled}/>}
