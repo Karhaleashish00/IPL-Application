@@ -1,0 +1,24 @@
+#head{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;   
+}
+#main{
+    width: 86vw;
+    display: flex;
+    flex-direction: column;
+}
+#tms{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+#tm1{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
