@@ -41,7 +41,7 @@ function ComparisionHome(){
         let postdata = { "player_name": player1,"team":team1 };
 
         axios
-            .post("/get-players-details", postdata)
+            .post("https://ipl-apis-u32y.onrender.com/get-players-details", postdata)
             .then((res) => {
                 let wicketCount = 0
                 Object.entries(res.data.wicket_taker).forEach(([key, value]) => {
@@ -58,7 +58,7 @@ function ComparisionHome(){
         let postdata = { "player_name": player2,"team":team2 };
 
         axios
-            .post("/get-players-details", postdata)
+            .post("https://ipl-apis-u32y.onrender.com/get-players-details", postdata)
             .then((res) => {
                 let wicketCount = 0
                 Object.entries(res.data.wicket_taker).forEach(([key, value]) => {
@@ -146,8 +146,8 @@ function ComparisionHome(){
     if(pl1Data.total_runs_conceded != 0 && pl1Data.wickets_taken == 0){pl1bowlAvg = parseFloat(pl1Data.total_runs_conceded)}
     if(pl2Data.total_runs_conceded != 0 && pl2Data.wickets_taken == 0){pl2bowlAvg = parseFloat(pl1Data.total_runs_conceded)}
 
-    if(pl1bowlAvg != 0){pl1bowlAvgPercent = ((pl1bowlAvg/(pl1bowlAvg + parseFloat(pl2bowlAvg)))*100).toFixed(2)}else{pl1bowlAvgPercent = 0};
-    if(pl2bowlAvg != 0){pl2bowlAvgPercent = ((pl2bowlAvg/(pl1bowlAvg + parseFloat(pl2bowlAvg)))*100).toFixed(2)}else{pl2bowlAvgPercent = 0}
+    if(pl1bowlAvg != 0){pl1bowlAvgPercent = ((parseFloat(pl1bowlAvg)/(parseFloat(pl1bowlAvg) + parseFloat(pl2bowlAvg)))*100).toFixed(2)}else{pl1bowlAvgPercent = 0};
+    if(pl2bowlAvg != 0){pl2bowlAvgPercent = ((parseFloat(pl2bowlAvg)/(parseFloat(pl1bowlAvg) + parseFloat(pl2bowlAvg)))*100).toFixed(2)}else{pl2bowlAvgPercent = 0}
    
     if(pl1bowlAvg == 0 && pl2bowlAvg == 0){pl1bowlAvgPercent = 50; pl2bowlAvgPercent = 50}
 
@@ -157,7 +157,7 @@ function ComparisionHome(){
     return (        
     <div id='main'>
         <div id='body'className='container'>
-            <span id='heading'><h3>This is Comparision Home</h3></span>      
+            <span id='heading'><h1>This is Comparision Home</h1></span>      
             <div id='outerdiv' className='col-12'>
                 <div className='col-4'>                    
                     {!pl1Data.image_url &&
@@ -248,7 +248,7 @@ function ComparisionHome(){
                    
                     {!pl2Data.image_url && !pl1Data.image_url &&
                         <div style={{margin:'100px 20px'}}>
-                            <h4>Click On Images to Add Players</h4>
+                            <h4 style={{color:'#fa4402'}}>Click On Images to Add Players</h4>
                         </div>
                     } 
                 </div>                     

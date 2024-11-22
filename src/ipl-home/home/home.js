@@ -4,6 +4,7 @@ import Nav from '../nav/Nav'
 import Players from '../players/players'
 import PlayersDetails from '../playersDetails/playersDetails';
 import ComparisionHome from '../player-comparision/comparisionHome';
+import FantacyHome from '../fantacy-prediction/fantacyHome';
 
 function Home() {
     const [home, setHome] = useState(false);
@@ -14,9 +15,13 @@ function Home() {
     const [isdetailsCalled , setPlaersCalledBool] = useState(false);
     const [bgteam , setbg] = useState("white");
     const [isComparisionCalled,setCompBool] = useState(false)
+    const [isfantacyCalled, setFantacy] = useState(false)
 
     function comparisionCalled(){
         setCompBool(true)
+    }
+    function fantacyCalled(){
+        setFantacy(true)
     }
     function isplayerCalled(player){
         console.log(player)
@@ -61,6 +66,7 @@ function Home() {
                         setTeamId("home")
                         setPlaersCalledBool("")
                         setCompBool(false)
+                        setFantacy(false)
                         break;
                     case "csk":
                         setBackground("#ffcb05");
@@ -163,7 +169,12 @@ function Home() {
                 <section id='comp'>
                     <ComparisionHome></ComparisionHome>
                 </section>
-            }   
+            }  
+            {isfantacyCalled && 
+                <section id='fantacy'>
+                    <FantacyHome></FantacyHome>
+                </section>
+            } 
             {isdetailsCalled && 
                 <section id='player-details'>
                     <PlayersDetails data = {isdetailsCalled}  back={backToPlayers} bg={bgteam}/>
@@ -180,13 +191,13 @@ function Home() {
                         <span id="team-trophy" className="text-center" dangerouslySetInnerHTML={{ __html: trophyContent }} />
                     </div>
                 } */}
-               {teamId === "home" && !isComparisionCalled &&
+               {teamId === "home" && !isComparisionCalled && !isfantacyCalled &&
                     <div id="main-section" className="container" style={{ backgroundColor: background,display:'flex',flexDirection:'row'}}>                        
                         <div className='card' style={{margin:'0px 20px',width:'400px',height:'400px',padding:'50px',cursor:'pointer'}} onClick={comparisionCalled}>
                             <img src={`${process.env.PUBLIC_URL}/images/player-comparision.png`}></img>
                             <h2 className='card-title'>Player Comparision</h2>
                         </div>
-                        <div className='card' style={{margin:'0px 20px',width:'400px',height:'400px',padding:'50px',cursor:'pointer'}}>
+                        <div className='card' style={{margin:'0px 20px',width:'400px',height:'400px',padding:'50px',cursor:'pointer'}} onClick={fantacyCalled}>
                             <img src={`${process.env.PUBLIC_URL}/images/prediction.png`}></img>
                             <h2 className='card-title'>fantacy Prediction</h2>
                         </div>                    

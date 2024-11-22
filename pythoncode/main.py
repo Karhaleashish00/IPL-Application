@@ -16,8 +16,8 @@ CORS(app)
 
 
 # Accessing the collection
-matchs_collection = mongo.db.IPLMatches  # Correct way to access the collection
-stats_collection = mongo.db.IPLStatistics
+matchs_collection = mongo.db.IPLMatches  # type: ignore # Correct way to access the collection
+stats_collection = mongo.db.IPLStatistics # type: ignore
 seassion_collections = [
         "seassion2008", "seassion2009", "seassion2010", "seassion2011", "seassion2012",
         "seassion2013", "seassion2014", "seassion2015", "seassion2016", "seassion2017",

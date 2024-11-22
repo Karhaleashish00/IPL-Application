@@ -11,7 +11,7 @@ function PlayersDetails(props) {
         console.log("player name : ",props.data.name);
         
         axios
-            .post("/get-players-details", postdata)
+            .post("https://ipl-apis-u32y.onrender.com/get-players-details", postdata)
             .then((res) => {
                 console.log("response", res);
                 console.log("res.data", res.data);
