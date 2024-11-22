@@ -1,7 +1,7 @@
 {
   "name": "first-react-app",
   "version": "0.1.0",
-  "proxy": "http://127.0.0.1:5000",
+  "proxy": "http://10.223.163.186:10000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -9,11 +9,13 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "first-react-app": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-google-charts": "^4.0.1",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.28.0",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

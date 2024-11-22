@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './ipl-home/home/home'
 import 'bootstrap/dist/css/bootstrap.css'
+import Home from './ipl-home/home/home'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <Home />
+    <Home/>
   </React.StrictMode>
 );

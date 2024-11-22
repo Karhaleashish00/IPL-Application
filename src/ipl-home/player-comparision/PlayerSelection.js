@@ -8,7 +8,7 @@ const PlayerSelection = ({ onplayerSelect, onCancel }) => {
 
   useEffect(() => {
     // Fetch teams from API
-    fetch("/get-all-teams")
+    fetch("https://ipl-apis-u32y.onrender.com/get-all-teams")
       .then((res) => res.json())
       .then((data) => {
         setTeams(data);

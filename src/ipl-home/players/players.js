@@ -7,7 +7,7 @@ function Players(props) {
   useEffect(() => {
     switch(props.id){
         case "csk":
-            fetch("/pla-csk")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-csk")
             .then((res) => res.json())
             .then((data) => {
               setData(data);
@@ -17,7 +17,7 @@ function Players(props) {
             });
             break;
         case "dc":
-            fetch("/pla-dc")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-dc")
             .then((res) => res.json())
             .then((data) => {
               setData(data);
@@ -27,7 +27,7 @@ function Players(props) {
             });
             break;
         case "gt":
-            fetch("/pla-gt")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-gt")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -38,7 +38,7 @@ function Players(props) {
             });
             break;
         case "kkr":
-            fetch("/pla-kkr")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-kkr")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -49,7 +49,7 @@ function Players(props) {
             });
             break;
         case "lsg":
-            fetch("/pla-lsg")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-lsg")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -60,7 +60,7 @@ function Players(props) {
             });
             break;
         case "mi":
-            fetch("/pla-mi")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-mi")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -71,7 +71,7 @@ function Players(props) {
             });
             break;
         case "pbks":
-            fetch("/pla-pbks")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-pbks")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -82,7 +82,7 @@ function Players(props) {
             });
             break;
         case "rr":
-            fetch("/pla-rr")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-rr")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -93,7 +93,7 @@ function Players(props) {
             });
             break;
         case "rcb":
-            fetch("/pla-rcb")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-rcb")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -104,7 +104,7 @@ function Players(props) {
             });
             break;
         case "srh":
-            fetch("/pla-srh")
+            fetch("https://ipl-apis-u32y.onrender.com/pla-srh")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -132,7 +132,7 @@ function Players(props) {
                 onClick={()=>props.setCalled(batter)}
               />
               <label className="pl-name">{batter.name}</label>
-              <label className="pl-skill">Batting</label>
+              <label className="pl-skill" style={{'fontWeight':200}}>Batting</label>
             </div>
           ))}
         </div>
